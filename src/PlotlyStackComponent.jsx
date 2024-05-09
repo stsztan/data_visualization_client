@@ -3,7 +3,7 @@ import Plot from 'react-plotly.js';
 const PlotlyStackComponent = ({ timeseries_data }) => {
     const timeseries_keys = Object.keys(timeseries_data)
     const timeseries_absolute = timeseries_keys.map(e => parseInt(e));
-    const data_keys = Object.keys(timeseries_data[timeseries_keys[0]])
+    const data_keys = Object.keys(timeseries_data[timeseries_keys[0]]);
     const all_relative_series = data_keys.map(
         k => {
             return {
@@ -14,9 +14,9 @@ const PlotlyStackComponent = ({ timeseries_data }) => {
                 )
             }
         }
-    )
+    );
 
-    return <Plot data={all_relative_series} />
+    return <Plot data={all_relative_series} />;
 };
 
 export default PlotlyStackComponent;
