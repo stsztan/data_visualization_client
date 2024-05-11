@@ -18,7 +18,16 @@ const PlotlyStackComponent = ({ timeseries_data }) => {
         }
     );
 
-    return <Plot data={all_relative_series.slice(0,500)} />;
+    // collecting maximal values
+    const max_values = timeseries_keys.map(
+        (t, i) => (all_relative_series.map(
+            graph => graph['y'][i]
+        )).reduce((previousOutput, currentValue) => {
+            return previousOutput <= currentValue ? currentValue : previousOutput;
+        })
+    );
+
+    return <Plot data={all_relative_series.slice(0, 500)} />;
 };
 
 export default PlotlyStackComponent;
