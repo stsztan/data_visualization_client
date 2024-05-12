@@ -4,8 +4,6 @@ const PlotlyStackComponent = ({ timeseries_data }) => {
     const timeseries_keys = Object.keys(timeseries_data);
     const timeseries_absolute = timeseries_keys.map(e => parseInt(e));
     const data_keys = Object.keys(timeseries_data[timeseries_keys[0]]);
-    const min_ts_value = Math.min(...timeseries_absolute);
-    const timeseries_relative = timeseries_absolute.map(e => e - min_ts_value);
     const all_relative_series = data_keys.map(
         k => {
             return {
