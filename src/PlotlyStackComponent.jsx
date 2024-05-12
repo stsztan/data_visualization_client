@@ -10,7 +10,7 @@ const PlotlyStackComponent = ({ timeseries_data }) => {
         k => {
             return {
                 name: k,
-                x: timeseries_relative,
+                x: timeseries_absolute.map(d => new Date(d * 1000)),
                 y: timeseries_keys.map(
                     (t, i) => timeseries_data[t][k] / timeseries_data[timeseries_keys[(i - 1) >= 0 ? (i - 1) : (0)]][k]
                 )
